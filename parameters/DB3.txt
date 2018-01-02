@@ -1,0 +1,14 @@
+{
+    'data_path':'data/DB3.npy',
+    'num_features':6,
+    'filtering_win':7,
+    'norm':'minmax',
+    'norm_mul':255.0,
+    'expand_channel':1,
+    'label_zoom':2,
+    'kv_n':5,
+    'batch_size':492,
+    'save_path':'save/DB3/',
+    'load_model':'',
+    'save_model':''
+}

@@ -1,0 +1,14 @@
+{
+    'data_path':'data/DB2.npy',
+    'num_features':6,
+    'filtering_win':3,
+    'norm':'minmax',
+    'norm_mul':255.0,
+    'expand_channel':1,
+    'label_zoom':1,
+    'kv_n':3,
+    'batch_size':450,
+    'save_path':'save/DB2/',
+    'load_model':'',
+    'save_model':''
+}
