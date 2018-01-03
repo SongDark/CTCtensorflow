@@ -9,7 +9,7 @@ class history():
         self.loss = []
     def append(self, param_dict={}):
         for k,v in param_dict.iteritems():
-            getattr(self, k).append(v)
+            getattr(self, k).append(str(v))
     def save(self, despath):
         to_save = {'epoch':self.epoch, 
                    'train_ler':self.train_ler,
@@ -17,6 +17,10 @@ class history():
                    'loss':self.loss}
         with open(despath, 'wb') as f:
             json.dump(json.dumps(to_save), f)
+    def print_history(self):
+        for i in range(len(self.epoch)):
+            log = "epoch {} train_ler={} val_ler={} loss={}"
+            print log.format(self.epoch[i], self.train_ler[i], self.val_ler[i], self.loss[i])
 
 def pad_sequences(sequences, network_len_func, maxlen=None, dtype=np.float32,
                   padding='post', truncating='post', value=0.):

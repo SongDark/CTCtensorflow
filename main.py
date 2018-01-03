@@ -2,7 +2,7 @@ from parameters import parameters
 from train import train
 # from predict import predict
 from datapreparaion import datapreparation
-# from networks.mycrnn import *
+from networks.mycrnn import *
 from networks.mylstm import *
 import argparse
 import os
@@ -23,17 +23,8 @@ data_folds, target_folds = datapreparation(params)
 
 params.print_params()
 # build network
-network = mylstm(params)
+# network = mylstm(params)
+network = mycrnn(params)
 
 train(params, network, data_folds, target_folds)
-
-# if args.run == 0:
-#     from train import train
-#     train(params, network, data_folds, target_folds)
-# elif args.run == 1:
-#     predict(params, network)
-# elif args.run == 2:
-#     pass
-# else:
-#     raise ValueError("Undefined -run %s." % str(args.run))
 

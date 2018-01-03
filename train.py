@@ -38,9 +38,8 @@ def train(params, network, data, targets):
                     indexes.append(range(num_batches_per_epoch*params.batch_size, params.num_samples))
 
                 for batch_index in indexes:      
-                    print 'batch_size =',len(batch_index)        
+                    # print 'batch_size =',len(batch_index)        
                     train_feed = get_feed(data_train[batch_index], targets_train[batch_index], network, "train")
-                    print time.time()-start
                     if (curr_epoch+1)%params.show_every_epoch == 0:
                         # it would be quite slow
                         batch_cost, _, loss, ler = session.run([network.cost, network.optimizer, network.loss, network.ler], feed_dict=train_feed)
@@ -54,7 +53,7 @@ def train(params, network, data, targets):
                 if (curr_epoch+1)%params.show_every_epoch == 0:
                    val_feed = get_feed(data_val, targets_val, network, 'test')
                    val_ler = session.run(network.ler, feed_dict=val_feed)
-                
+
                 if (curr_epoch+1)%params.show_every_epoch == 0:
                     train_cost /= params.num_samples
                     train_ler /= params.num_samples
